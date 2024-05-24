@@ -271,7 +271,7 @@ h1,h2, h3, h4, h5, h6{font-weight: 400;}
 	background-color: rgb(224, 224, 224);
 	border-radius: 5px;
 }
-.card__main-item div {
+.card__main-header {
 	display: flex;
 	align-items: center;
 	gap: 110px;
@@ -281,6 +281,7 @@ h1,h2, h3, h4, h5, h6{font-weight: 400;}
 	background-color: rgb(40, 40, 40);
 	padding: 15px;
 	border-radius: 5px;
+	position: relative;
 }
 .card__main-title {
 	font-size: 20px;
@@ -294,18 +295,45 @@ h1,h2, h3, h4, h5, h6{font-weight: 400;}
 	max-width: 100px;
 }
 /* -------------------------- */
-.card__overflow {
-}
 .display {
 	display: none;
 }
 .overflow {
 	overflow: hidden;
 }
-.cart__menu {
-	
-}
 /* -------------------------- */
+.card__count {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 100%;
+}
+.card__amount {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+	gap: 20px;
+}
+.card__amount button {
+	padding: 0px 10px;
+	background-color: rgb(255, 188, 63);
+	font-size: 20px;
+	font-weight: bold;
+	border-radius: 5px;
+	transition: all 0.3s ease;
+}
+.card__amount button:hover {
+	transform: translateY(-5px) scale(1.05);
+	background-color: rgba(108, 255, 164, 0.7);
+}
+.card__close {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	z-index: 1000;
+	background-color: unset;
+	font-size: 20px;
+	color: rgb(224, 224, 224);
+}
 
 
 
