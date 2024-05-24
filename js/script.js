@@ -13,11 +13,17 @@ beats.forEach((elem)=> {
         <center>
             <img class="main__img" src=${elem.img} alt="shop product">
         </center>
-        <h2 class="main__title">${elem.name}</h2>
+        <div class="main__header">
+            <h2 class="main__title">${elem.name}</h2>
+            <p>max ${elem.max}</p>
+        </div>
         <p class="main__info">${elem.subtitle}</p>
-        <div class="main__interaction">
-            <i class="fa-solid fa-heart"></i>
-            <i onClick="addToCart(${elem.id})" class="fa-solid fa-cart-shopping"></i>
+        <div class="main__footer">
+            <div class="main__interaction">
+                <i class="fa-solid fa-heart"></i>
+                <i onClick="addToCart(${elem.id})" class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <p class="main__footer-price">${elem.price}$</p>
         </div>
     </div>
     `
@@ -64,9 +70,17 @@ function changeCount(action, id) {
     let item = shopCart.find((elem)=> elem.id == id)
     if(action == "-" && item.count > 1) {
         item.count--
-    } else if(action == "+") {
+    } else if(action == "+" && item.count < item.max) {
         item.count++
     }
     updateCart()
 }
+let headerSearch = document.querySelector(".header__search input")
 
+window.addEventListener("resize", ()=> {
+    if (window.innerWidth < 500) {
+        headerSearch.placeholder = ""
+    } else if (window.innerWidth > 500) {
+        headerSearch.placeholder = "Enter beats name"
+    }
+})
