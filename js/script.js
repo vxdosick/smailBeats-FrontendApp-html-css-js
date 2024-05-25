@@ -32,6 +32,10 @@ beats.forEach((elem)=> {
 let cardMain = document.querySelector(".card__main")
 
 let shopCart = []
+if(localStorage.getItem("shopCart") != undefined) {
+    shopCart = JSON.parse(localStorage.getItem("shopCart"))
+    updateCart()
+}
 function addToCart(id) {
     let findElem = shopCart.find((elem)=> elem.id == id)
     if(findElem) {
@@ -73,6 +77,7 @@ function updateCart() {
     document.querySelector(".card__quantity").textContent = cardQuantity
     document.querySelector(".card__costs-number").textContent = cardPrice
     document.querySelector(".card__buy-number").textContent = cardPrice
+    localStorage.setItem("shopCart", JSON.stringify(shopCart))
 }
 function changeCount(action, id) {
     let item = shopCart.find((elem)=> elem.id == id)
