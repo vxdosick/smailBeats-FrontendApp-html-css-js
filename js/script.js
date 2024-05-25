@@ -58,7 +58,7 @@ function updateCart() {
     shopCart.forEach((element)=> {
         cardMain.innerHTML += `
         <div class="card__main-item">
-            <button class="card__close">&#10006;</button>
+            <button onClick="removeIdCartElem(${element.id})" class="card__close">&#10006;</button>
             <div class="card__main-header">
                 <img src=${element.img} alt="cart image">
                 <h3 class="card__main-title">${element.name}</h3>
@@ -100,3 +100,11 @@ window.addEventListener("resize", ()=> {
         headerSearch.placeholder = "Enter beats name"
     }
 })
+function removeAllCart() {
+shopCart = []
+updateCart()
+}
+function removeIdCartElem(id) {
+    shopCart = shopCart.filter((item)=> item.id != id)
+    updateCart()
+}
