@@ -35,7 +35,7 @@ let shopCart = []
 function addToCart(id) {
     let findElem = shopCart.find((elem)=> elem.id == id)
     if(findElem) {
-        findElem.count++
+            changeCount("+", id)
     } else {
         let element = beats.find((el)=> el.id == id)
         shopCart.push({
@@ -48,6 +48,9 @@ function addToCart(id) {
 }
 function updateCart() {
     cardMain.innerHTML = ''
+    let cardQuantity = 0
+    let cardPrice = 0
+
     shopCart.forEach((element)=> {
         cardMain.innerHTML += `
         <div class="card__main-item">
@@ -64,7 +67,12 @@ function updateCart() {
             </div>
         </div>
         `
+        cardPrice += (element.price * element.count)
+        cardQuantity += element.count
     })
+    document.querySelector(".card__quantity").textContent = cardQuantity
+    document.querySelector(".card__costs-number").textContent = cardPrice
+    document.querySelector(".card__buy-number").textContent = cardPrice
 }
 function changeCount(action, id) {
     let item = shopCart.find((elem)=> elem.id == id)
@@ -72,6 +80,9 @@ function changeCount(action, id) {
         item.count--
     } else if(action == "+" && item.count < item.max) {
         item.count++
+    } else if (action == "-" && item.count == 1) {
+        shopCart.filter((elem)=> elem.id != id)
+        shopCart = shopCart.filter((elem)=> elem.id != id)
     }
     updateCart()
 }

@@ -233,8 +233,14 @@ h1,h2, h3, h4, h5, h6{font-weight: 400;}
 	width: 100%;
 	border-bottom: 1px dotted rgb(224, 224, 224);
 }
+.card__footer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
 .card__buy {
-	padding: 7px 180px;
+	padding: 7px 0px;
+	width: 90%;
 	border-radius: 5px;
 	background-color: unset;
 	transition: all 0.3s ease;
@@ -359,6 +365,9 @@ h1,h2, h3, h4, h5, h6{font-weight: 400;}
     	-webkit-background-clip: text;
     	color: transparent;
 }
+.card__quantity {
+
+}
 
 
 
@@ -386,7 +395,7 @@ h1,h2, h3, h4, h5, h6{font-weight: 400;}
 		max-width: 375px;
 	}
 	.card__buy {
-		padding: 7px 100px;
+		padding: 7px 70px;
 	}
 	.card__main-title {
 		text-align: left;
