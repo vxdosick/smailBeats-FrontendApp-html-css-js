@@ -314,16 +314,28 @@ h1,h2, h3, h4, h5, h6{font-weight: 400;}
 	overflow: hidden;
 }
 /* -------------------------- */
+.card__count-container {
+	max-width: 20%;
+	border: 1px solid rgb(224, 224, 224);
+	display: flex;
+	justify-content: center;
+	background-color: unset;
+	border-radius: 5px;
+}
 .card__count {
 	font-size: 20px;
 	font-weight: bold;
-	line-height: 100%;
+	width: auto;
+	width: 100%;
+	background-color: unset;
+	color: white;
+	text-align: center;
 }
 .card__amount {
 	display: flex;
 	align-items: center;
 	margin-top: 20px;
-	gap: 20px;
+	gap: 40px;
 }
 .card__amount button {
 	padding: 0px 10px;

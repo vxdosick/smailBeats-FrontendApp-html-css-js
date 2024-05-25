@@ -66,7 +66,9 @@ function updateCart() {
             <p class="card__main-subtitle">${element.subtitle}</p>
             <div class="card__amount">
                 <button onClick="changeCount('-', ${element.id})">-</button>
-                <p class="card__count">${element.count}</p>
+                <div class="card__count-container">
+                    <input onfocusout="inputCount(event, ${element.id})" class="card__count" value = ${element.count} type="text">
+                </div>
                 <button onClick="changeCount('+', ${element.id})">+</button>
             </div>
         </div>
@@ -107,4 +109,21 @@ updateCart()
 function removeIdCartElem(id) {
     shopCart = shopCart.filter((item)=> item.id != id)
     updateCart()
+}
+function inputCount(event, id) {
+    let newCountNumber;
+    let input = event.target;
+    let newCount = input.value;
+    let element = shopCart.find((element) => element.id == id);
+
+    if (/^\d+$/.test(newCount)) {
+        newCountNumber = parseInt(newCount);
+        element.count = newCountNumber
+        updateCart()
+        if (newCountNumber > element.max) {
+            alert(`Enter number (1-${element.max})`);
+        }
+    } else {
+        alert(`Enter a valid number`);
+    }
 }
